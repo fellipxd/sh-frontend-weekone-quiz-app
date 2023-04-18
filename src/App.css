@@ -100,13 +100,19 @@ input {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .question-number {
   padding: 0.8rem;
   background-color: #218380;
   border: none;
-  border-radius: 10px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .question-number a {
