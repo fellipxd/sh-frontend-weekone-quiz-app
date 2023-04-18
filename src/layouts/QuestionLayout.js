@@ -10,7 +10,7 @@ const QuestionLayout = () => {
       <div className="questions">
         {questions.map((question) => (
           <p key={question.id} className="question-number">
-            <Link to="/questions/1">{question.id}</Link>
+            {<Link to="/">{question.id}</Link>}
           </p>
         ))}
       </div>
