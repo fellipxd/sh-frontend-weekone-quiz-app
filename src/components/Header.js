@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaHandPointLeft } from "react-icons/fa";
 
-const Header = () => {
+const Header = ({counter}) => {
+
   return (
-    <header>
       <nav>
         <Link to="/">View Highscores {<FaHandPointLeft />}</Link>
-        <p>Time:</p>
+        <p>Time: {counter} </p>
       </nav>
-    </header>
   );
 };
 

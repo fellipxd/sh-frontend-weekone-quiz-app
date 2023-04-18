@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useLoaderData } from "react-router";
 
 const Questions = () => {
-  return (
-    <div>Questions</div>
-  )
-}
+  const questions = useLoaderData();
 
-export default Questions
+  return (
+    <div>
+      {questions.map((question) => (
+        <h1 key={question.id}>{question.questionText}</h1>
+      ))}
+    </div>
+  );
+};
+
+export default Questions;
