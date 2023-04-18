@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 const QuestionLayout = () => {
   return (
     <div>
-      <h1>Questions</h1>
+      <h2>Questions</h2>
       
       <Outlet />
     </div>
