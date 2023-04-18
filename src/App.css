@@ -24,7 +24,8 @@ nav {
   padding: 1.5rem;
 }
 
-nav a, button a {
+nav a,
+button a {
   color: #fff;
   text-decoration: none;
 }
@@ -71,14 +72,48 @@ button {
 }
 
 ul {
-  display: flex;
   list-style: none;
-  border: 1px solid #000;
+  margin-top: 2rem;
+}
+
+li {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #218380;
+  color: #fff;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.initials {
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
+.questions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
 
-@media screen and (max-width: 450px ) {
+.question-number {
+  padding: 0.8rem;
+  background-color: #218380;
+  border: none;
+  border-radius: 10px;
+}
+
+.question-number a {
+  color: #fff;
+}
+
+@media screen and (max-width: 450px) {
   .container {
     padding: 1.5rem;
   }

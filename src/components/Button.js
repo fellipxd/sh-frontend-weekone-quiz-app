@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Button = ({ text, link }) => {
   return (
     <div>
-      <button type="button">
-        <Link to={link}>{text}</Link>
-      </button>
+      <Link to={link}>
+        <button type="button">{text}</button>
+      </Link>
     </div>
   );
 };

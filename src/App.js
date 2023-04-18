@@ -10,16 +10,18 @@ import Home from "./pages/Home";
 import QuestionLayout from "./layouts/QuestionLayout";
 import RootLayout from "./layouts/RootLayout";
 import NotFound from "./pages/NotFound";
-import { questionLoader } from "./hook/loader";
-import Questions from "./pages/Questions";
+import { questionDataLoader, questionLoader} from "./hook/loader";
+import ScoreCard from "./pages/ScoreCard";
+import Question from "./pages/Question";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path="questions" element={<QuestionLayout />}>
-        <Route index element={<Questions />} loader={questionLoader} />
+      <Route path="questions" element={<QuestionLayout />} loader={questionLoader}>
+        <Route path=":id" element={<Question />} loader={questionDataLoader} />
       </Route>
+      <Route path="score" element={<ScoreCard />} />
 
       <Route path="*" element={<NotFound />} />
     </Route>
