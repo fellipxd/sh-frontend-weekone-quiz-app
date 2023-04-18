@@ -3,17 +3,22 @@
     {
       "id": "1",
       "questionText": "Commonly used data types DO NOT include:",
-      "options": ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+      "options": [
+        {"id": "1", "text": "1. strings"},
+        {"id": "2", "text": "2. booleans"},
+        {"id": "3", "text": "3. alerts"},
+        {"id": "4", "text": "4. numbers"}        
+      ],
       "answer": "3. alerts"  
     },
     {
       "id": "2",
       "questionText": "Arrays in JavaScript can be used to store ______.",
       "options": [
-        "1. numbers and strings",
-        "2. other arrays",
-        "3. booleans",
-        "4. all of the above"
+        {"id": "1", "text": "1. numbers and strings"},
+        {"id": "2", "text": "2. other arrays"},
+        {"id": "3", "text": "3. booleans"},
+        {"id": "4", "text": "4. all of the above"}        
       ],
       "answer": "4. all of the above"
     },
@@ -21,7 +26,12 @@
       "id": "3",
       "questionText":
       "String values must be enclosed within _____ when being assigned to variables.",
-      "options": ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
+      "options": [
+        {"id": "1", "text": "1. commas"},
+        {"id": "2", "text": "2. curly brackets"},
+        {"id": "3", "text": "3. quotes"},
+        {"id": "4", "text": "4. parentheses"}        
+      ],
       "answer": "3. quotes"
     },
     {
@@ -29,10 +39,10 @@
       "questionText":
       "A very useful tool used during development and debugging for printing content to the debugger is:",
       "options": [
-      "1. JavaScript",
-      "2. terminal/bash",
-      "3. for loops",
-      "4. console.log"
+        {"id": "1", "text": "1. JavaScript"},
+        {"id": "2", "text": "2. terminal/bash"},
+        {"id": "3", "text": "3. for loops"},
+        {"id": "4", "text": "4. console.log"}        
       ],
       "answer": "4. console.log"
     },
@@ -40,7 +50,12 @@
       "id": "5",
       "questionText":
       "Which of the following is a statement that can be used to terminate a loop, switch or label statement?",
-      "options": ["1. break", "2. stop", "3. halt", "4. exit"],
+      "options": [
+        {"id": "1", "text": "1. break"},
+        {"id": "2", "text": "2. stop"},
+        {"id": "3", "text": "3. halt"},
+        {"id": "4", "text": "4. exit"}        
+      ],
       "answer": "1. break"
     }
   ]

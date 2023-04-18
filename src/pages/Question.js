@@ -8,7 +8,7 @@ const Question = () => {
     <div>
       <h2>{question.questionText}</h2>
       <ul>{question.options.map((option) => (
-        <li>{option}</li>
+        <li key={option.id}>{option.text}</li>
       ))}</ul>
     </div>
   );
