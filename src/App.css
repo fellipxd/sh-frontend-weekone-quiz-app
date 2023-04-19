@@ -48,6 +48,7 @@ main {
   border-radius: 20px;
   box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.4);
   min-height: 250px;
+  width: 90vw;
   padding: 3rem;
 }
 
@@ -73,7 +74,7 @@ button {
 
 ul {
   list-style: none;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 li {
@@ -103,16 +104,9 @@ input {
   margin-bottom: 1rem;
 }
 
-.question-number {
-  padding: 0.8rem;
-  background-color: #218380;
-  border: none;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.arrows {
+  font-size: 2rem;
+  color: #218380;
 }
 
 .question-number a {
