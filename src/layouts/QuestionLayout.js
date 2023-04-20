@@ -23,14 +23,19 @@ const QuestionLayout = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <div className="questions">
         <NavLink onClick={handlePrevClick} to={prev}>
+=======
+      {/* <div className="questions">
+        <NavLink to="4">
+>>>>>>> 73fb8bb4f9e2e5d5e639774b9be665ef30befffc
           <span>{<BsArrowLeftCircleFill className="arrows" />}</span>
         </NavLink>
         <NavLink onClick={handleNextClick} to={next}>
           <span>{<BsArrowRightCircleFill className="arrows" />}</span>
         </NavLink>
-      </div>
+      </div> */}
       <Outlet />
     </div>
   );

@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import { questionDataLoader } from "./hook/loader";
 import ScoreCard from "./pages/ScoreCard";
 import Question from "./pages/Question";
+import AppProvider from "./state/provider";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +34,12 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AppProvider>
+      <RouterProvider router={router} />;
+    </AppProvider>
+  )
+
 }
 
 export default App;
