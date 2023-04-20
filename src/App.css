@@ -16,6 +16,7 @@ header {
 }
 
 nav {
+  max-width: 1200px;
   width: 95%;
   margin: 0 auto;
   display: flex;
@@ -48,6 +49,7 @@ main {
   border-radius: 20px;
   box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.4);
   min-height: 250px;
+  max-width: 900px;
   width: 90vw;
   padding: 3rem;
 }
@@ -84,11 +86,17 @@ li {
   border-radius: 10px;
   background-color: #218380;
   color: #fff;
+  cursor: pointer;
+}
+
+li:hover {
+  scale: .99;
+  transition: 0.2s linear;
 }
 
 input {
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
 }
 
 .initials {
@@ -111,6 +119,12 @@ input {
 
 .question-number a {
   color: #fff;
+}
+
+.answer {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
 }
 
 @media screen and (max-width: 450px) {

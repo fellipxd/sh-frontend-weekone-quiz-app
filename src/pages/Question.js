@@ -47,7 +47,7 @@ const Question = () => {
                   onClick={() => handleOptionSelect(option)}>{option.text}</li>
               ))}
             </ul>
-            {answerResult && <p>{answerResult}</p>}
+            {answerResult && <p className="answer">{answerResult}</p>}
           </div>
         )}
       </div>}
