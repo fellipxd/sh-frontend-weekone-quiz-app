@@ -14,12 +14,18 @@ import { questionDataLoader } from "./hook/loader";
 import ScoreCard from "./pages/ScoreCard";
 import Question from "./pages/Question";
 import AppProvider from "./state/provider";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path="questions" element={<QuestionLayout />} loader={questionDataLoader}>
+      <Route path="login" element={<Login />} />
+      <Route
+        path="questions"
+        element={<QuestionLayout />}
+        loader={questionDataLoader}
+      >
         <Route path=":id" element={<Question />} loader={questionDataLoader} />
       </Route>
       <Route path="score" element={<ScoreCard />} />
@@ -34,8 +40,7 @@ function App() {
     <AppProvider>
       <RouterProvider router={router} />;
     </AppProvider>
-  )
-
+  );
 }
 
 export default App;
