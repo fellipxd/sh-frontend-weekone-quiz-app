@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import AppContext from "../state/context";
+import ScoreCard from "./ScoreCard";
 
 const Question = () => {
-  const { count, updateCount, selectedOption, setSelectedOption, questions, setQuestions, answerResult, setAnswerResult, currentQuestionIndex, setCurrentQuestionIndex } = useContext(AppContext);
+  const { increaseScore, count, updateCount, selectedOption, setSelectedOption, questions, setQuestions, answerResult, setAnswerResult, currentQuestionIndex, setCurrentQuestionIndex } = useContext(AppContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,6 +18,7 @@ const Question = () => {
     setSelectedOption(option.text);
     if (option.text === currentQuestion?.answer) {
       setAnswerResult("Success");
+      increaseScore()
     } else {
       setAnswerResult("Failure");
       updateCount(count);
@@ -26,9 +28,7 @@ const Question = () => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setAnswerResult("");
     }, 1000);
-    if (currentQuestionIndex === questions.length - 1) {
-      window.location.href = '/score';
-    }
+
   };
 
   console.log("ques", count)
@@ -36,20 +36,23 @@ const Question = () => {
   const currentQuestion = questions[currentQuestionIndex];
   return (
     <div>
-      {currentQuestion && (
-        <div>
-          <h2>Question {currentQuestion.id}</h2>
-          <p>{currentQuestion.questionText}</p>
-          <ul>
-            {currentQuestion.options.map((option) => (
-              <li key={option.id} className={selectedOption === option.text ? "selected" : ""}
-                onClick={() => handleOptionSelect(option)}>{option.text}</li>
-            ))}
-          </ul>
-          {answerResult && <p>{answerResult}</p>}
-        </div>
-      )}
+      {currentQuestionIndex === questions.length ? <ScoreCard /> : <div>
+        {currentQuestion && (
+          <div>
+            <h2>Question {currentQuestion.id}</h2>
+            <p>{currentQuestion.questionText}</p>
+            <ul>
+              {currentQuestion.options.map((option) => (
+                <li key={option.id} className={selectedOption === option.text ? "selected" : ""}
+                  onClick={() => handleOptionSelect(option)}>{option.text}</li>
+              ))}
+            </ul>
+            {answerResult && <p>{answerResult}</p>}
+          </div>
+        )}
+      </div>}
     </div>
+
   );
 };
 

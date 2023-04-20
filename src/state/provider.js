@@ -3,6 +3,7 @@ import AppContext from "./context";
 
 const AppProvider = (props) => {
   const [count, setCount] = useState(60);
+  const [score, setScore] = useState(0)
   const [isCounting, setIsCounting] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [questions, setQuestions] = useState([]);
@@ -11,6 +12,9 @@ const AppProvider = (props) => {
   const decrementCount = () => {
     setCount(count - 1);
   };
+  const increaseScore = () => {
+    setScore(score + 10)
+  }
 
   const updateCount = (count) => {
     setCount(count - 5)
@@ -32,7 +36,7 @@ const AppProvider = (props) => {
 
 
   return (
-    <AppContext.Provider value={{ count, updateCount, decrementCount, isCounting, setIsCounting, handleClick, selectedOption, setSelectedOption, questions, setQuestions, answerResult, setAnswerResult, currentQuestionIndex, setCurrentQuestionIndex }}>
+    <AppContext.Provider value={{ score, setScore, increaseScore, count, updateCount, decrementCount, isCounting, setIsCounting, handleClick, selectedOption, setSelectedOption, questions, setQuestions, answerResult, setAnswerResult, currentQuestionIndex, setCurrentQuestionIndex }}>
       {props.children}
     </AppContext.Provider>
   );

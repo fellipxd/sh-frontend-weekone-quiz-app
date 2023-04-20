@@ -8,14 +8,14 @@ const QuestionLayout = () => {
 
   return (
     <div>
-      <div className="questions">
+      {/* <div className="questions">
         <NavLink to="4">
           <span>{<BsArrowLeftCircleFill className="arrows" />}</span>
         </NavLink>
         <NavLink to="2">
           <span>{<BsArrowRightCircleFill className="arrows" />}</span>
         </NavLink>
-      </div>
+      </div> */}
       <Outlet />
     </div>
   );
