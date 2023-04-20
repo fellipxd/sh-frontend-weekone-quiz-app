@@ -77,11 +77,12 @@ button {
 ul {
   list-style: none;
   margin-top: 1.5rem;
+  padding: 0 0.5rem;
 }
 
 li {
   margin-top: 0.5rem;
-  padding: 1rem;
+  padding: 0.7rem;
   border: none;
   border-radius: 10px;
   background-color: #218380;
