@@ -1,18 +1,33 @@
 import React from "react";
+import { useState } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
-import { Outlet } from "react-router";
+import { Outlet, useLoaderData } from "react-router";
 import { NavLink } from "react-router-dom";
 
 const QuestionLayout = () => {
-  // const questions = useLoaderData();
+  const questions = useLoaderData();
+  const id = questions.id;
+
+  const [prev, setPrev] = useState(id);
+  const [next, setNext] = useState(id);
+
+  const handlePrevClick = () => {
+    const newPrev = +prev - 1
+    setPrev(newPrev.toString());
+  };
+
+  const handleNextClick = () => {
+    const newNext = +next + 1
+    setNext(newNext.toString());
+  };
 
   return (
     <div>
       <div className="questions">
-        <NavLink to="4">
+        <NavLink onClick={handlePrevClick} to={prev}>
           <span>{<BsArrowLeftCircleFill className="arrows" />}</span>
         </NavLink>
-        <NavLink to="2">
+        <NavLink onClick={handleNextClick} to={next}>
           <span>{<BsArrowRightCircleFill className="arrows" />}</span>
         </NavLink>
       </div>
