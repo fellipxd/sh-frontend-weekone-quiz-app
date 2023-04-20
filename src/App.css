@@ -91,7 +91,7 @@ li {
 }
 
 li:hover {
-  scale: .99;
+  transform: scale(0.99);
   transition: 0.2s linear;
 }
 

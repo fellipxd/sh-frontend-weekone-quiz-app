@@ -17,10 +17,10 @@ const Question = () => {
   const handleOptionSelect = (option) => {
     setSelectedOption(option.text);
     if (option.text === currentQuestion?.answer) {
-      setAnswerResult("Success");
+      setAnswerResult("Correct!");
       increaseScore()
     } else {
-      setAnswerResult("Failure");
+      setAnswerResult("Incorrect!");
       updateCount(count);
     }
 
