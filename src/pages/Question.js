@@ -22,7 +22,7 @@ const Question = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://quizapp.topdatanig.com/question.php"
+        "https://quipapp.000webhostapp.com/question.php"
       );
       const data = await response.json();
       setQuestions(data);

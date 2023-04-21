@@ -14,18 +14,16 @@ const ScoreCard = () => {
     const result = { initial, score };
     console.log(result);
 
-    fetch("https://quizapp.topdatanig.com/send_score.php", {
+    fetch("https://quipapp.000webhostapp.com/send_score.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(result),
-    }).then(() => {
+    }).then((res) => {
       console.log("new blog added");
       setSubmit("Submitted")
-      // setTimeout(() => {
-      //   history.push("/")
-      // }, 1000)
+
     });
   };
 
@@ -40,6 +38,7 @@ const ScoreCard = () => {
         <div>
           <input
             type="text"
+            value={initial}
             onChange={(e) => setInitial(e.target.value.toUpperCase())}
             required
           />

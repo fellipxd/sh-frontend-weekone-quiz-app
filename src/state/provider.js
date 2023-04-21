@@ -5,6 +5,8 @@ const AppProvider = (props) => {
   const [count, setCount] = useState(60);
   const [score, setScore] = useState(0);
   const [initial, setInitial] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [submit, setSubmit] = useState("");
   const [isCounting, setIsCounting] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
@@ -58,6 +60,10 @@ const AppProvider = (props) => {
         setInitial,
         submit,
         setSubmit,
+        email,
+        setEmail,
+        password,
+        setPassword
       }}
     >
       {props.children}

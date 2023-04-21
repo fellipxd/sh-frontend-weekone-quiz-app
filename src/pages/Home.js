@@ -5,9 +5,8 @@ import AppContext from "../state/context";
 const Home = () => {
   const { handleClick, setCount } = useContext(AppContext);
 
-  useEffect(() => {
-    setCount(60);
-  }, []);
+  setCount(60);
+
   return <div>
     <h2>Coding Quiz Challenge</h2>
     <p>Try to answer the following code-related questions withing the time limit.</p>
