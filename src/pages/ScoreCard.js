@@ -5,7 +5,7 @@ import AppContext from "../state/context";
 const ScoreCard = () => {
 
   const { score } = useContext(AppContext);
-  console.log("score", score)
+
   return (
     <div>
       <h2>All done!</h2>

@@ -16,7 +16,7 @@ const AppProvider = (props) => {
     setScore(score + 10)
   }
 
-  const updateCount = (count) => {
+  const updateCount = () => {
     setCount(count - 5)
   }
 
@@ -29,14 +29,12 @@ const AppProvider = (props) => {
     setTimeout(decrementCount, 1000);
   }
 
-  if (count === 0) {
-    window.location.href = '/score';
-  }
+
 
 
 
   return (
-    <AppContext.Provider value={{ score, setScore, increaseScore, count, updateCount, decrementCount, isCounting, setIsCounting, handleClick, selectedOption, setSelectedOption, questions, setQuestions, answerResult, setAnswerResult, currentQuestionIndex, setCurrentQuestionIndex }}>
+    <AppContext.Provider value={{ score, setScore, increaseScore, count, setCount, updateCount, decrementCount, isCounting, setIsCounting, handleClick, selectedOption, setSelectedOption, questions, setQuestions, answerResult, setAnswerResult, currentQuestionIndex, setCurrentQuestionIndex }}>
       {props.children}
     </AppContext.Provider>
   );

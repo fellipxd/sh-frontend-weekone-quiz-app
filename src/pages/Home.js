@@ -6,9 +6,6 @@ import AppContext from "../state/context";
 const Home = () => {
   const { handleClick, count } = useContext(AppContext);
 
-  console.log("count", count)
-
-
   return <div>
     <h2>Coding Quiz Challenge</h2>
     <p>Try to answer the following code-related questions withing the time limit.</p>
