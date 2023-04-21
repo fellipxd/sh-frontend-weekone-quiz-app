@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 // import {useHistory} from "react-router-dom"
 import Button from "../components/Button";
 import AppContext from "../state/context";
 
 const ScoreCard = () => {
-  const { score, initial, setInitial, submit, setSubmit } = useContext(AppContext);
+  const { score, initial, setInitial, submit, setSubmit, setCount } = useContext(AppContext);
   // const history = useHistory()
-
+  useEffect(() => {
+    setCount(0);
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = { initial, score };
@@ -27,11 +29,8 @@ const ScoreCard = () => {
     });
   };
 
-<<<<<<< HEAD
-=======
-  const { score } = useContext(AppContext);
 
->>>>>>> d6927db3e24fe83639c20ab4c6ac140d61b0a81c
+
   return (
     <div>
       <h2>All done!</h2>
