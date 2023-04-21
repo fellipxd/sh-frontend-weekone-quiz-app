@@ -25,6 +25,7 @@ const AppProvider = (props) => {
     setIsCounting(true);
   };
 
+
   if (isCounting && count > 0) {
     setTimeout(decrementCount, 1000);
   }

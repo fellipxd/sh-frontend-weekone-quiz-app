@@ -3,7 +3,8 @@ import Button from "../components/Button";
 import AppContext from "../state/context";
 
 const HighScoreCard = () => {
-
+  const { setCount } = useContext(AppContext);
+  setCount(0)
   return (
     <div class='box'>
       <h2>High Scores</h2>

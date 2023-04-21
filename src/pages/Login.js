@@ -24,7 +24,7 @@ const Login = () => {
           </div>
         </div>
         <div className="btn">
-          <Button text="Submit" link="/questions" />
+          <Button text="Submit" link="/home" />
         </div>
       </div>
     </div>

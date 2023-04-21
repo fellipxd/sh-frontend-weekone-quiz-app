@@ -18,8 +18,8 @@ import HighScoreCard from "./pages/highScore";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
-      <Route path="login" element={<Login />} />
+      <Route index element={<Login />} />
+      <Route path="home" element={<Home />} />
       <Route path="questions" element={<QuestionLayout />} />
       <Route path="score" element={<ScoreCard />} />
       <Route path="high-score" element={<HighScoreCard />} />
