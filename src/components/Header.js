@@ -8,7 +8,11 @@ const Header = () => {
 
   return (
     <nav>
+<<<<<<< HEAD
       <Link to="highscore">View Highscores {<FaHandPointLeft />}</Link>
+=======
+      <Link to="/high-score">View Highscores {<FaHandPointLeft />}</Link>
+>>>>>>> d6927db3e24fe83639c20ab4c6ac140d61b0a81c
       <p>Time: {count} </p>
     </nav>
   );

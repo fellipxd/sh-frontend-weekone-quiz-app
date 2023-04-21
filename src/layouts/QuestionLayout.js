@@ -1,10 +1,10 @@
 import React from "react";
-import { Outlet } from "react-router";
+import Question from "../pages/Question";
 
 const QuestionLayout = () => {
   return (
     <div>
-      <Outlet />
+      <Question />
     </div>
   );
 };

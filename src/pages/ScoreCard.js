@@ -27,6 +27,11 @@ const ScoreCard = () => {
     });
   };
 
+<<<<<<< HEAD
+=======
+  const { score } = useContext(AppContext);
+
+>>>>>>> d6927db3e24fe83639c20ab4c6ac140d61b0a81c
   return (
     <div>
       <h2>All done!</h2>

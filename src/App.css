@@ -80,12 +80,16 @@ ul {
   padding: 0 0.5rem;
 }
 
+<<<<<<< HEAD
 ol {
   margin-top: 0.5rem;
   padding: 0.7rem;
 }
 
 li {
+=======
+ul li {
+>>>>>>> d6927db3e24fe83639c20ab4c6ac140d61b0a81c
   margin-top: 0.5rem;
   padding: 0.7rem;
   border: none;
@@ -95,9 +99,12 @@ li {
   cursor: pointer;
 }
 
-li:hover {
+ul li:hover {
   transform: scale(0.99);
   transition: 0.2s linear;
+}
+ol li {
+  margin: 20px;
 }
 
 input {
@@ -158,6 +165,11 @@ input {
   padding-top: 1rem;
   border-top: 1px solid #333;
 }
+/* .box {
+  display: flex;
+  flex-direction: column;
+  paddin
+} */
 
 .btn {
   display: flex;

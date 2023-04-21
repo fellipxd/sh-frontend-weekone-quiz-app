@@ -27,7 +27,11 @@ const Login = () => {
           </div>
         </div>
         <div className="btn">
+<<<<<<< HEAD
           <Button onClick={handleClick} text="Submit" link="/questions/1" />
+=======
+          <Button text="Submit" link="/home" />
+>>>>>>> d6927db3e24fe83639c20ab4c6ac140d61b0a81c
         </div>
       </div>
     </div>
