@@ -4,7 +4,8 @@ import AppContext from "./context";
 const AppProvider = (props) => {
   const [count, setCount] = useState(60);
   const [score, setScore] = useState(0);
-  const [initial, setInitial] = useState("");
+  const [displayError, setDisplayError] = useState("");
+  const [initials, setInitials] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submit, setSubmit] = useState("");
@@ -56,14 +57,14 @@ const AppProvider = (props) => {
         setAnswerResult,
         currentQuestionIndex,
         setCurrentQuestionIndex,
-        initial,
-        setInitial,
+        initials,
+        setInitials,
         submit,
         setSubmit,
         email,
         setEmail,
         password,
-        setPassword
+        setPassword, displayError, setDisplayError
       }}
     >
       {props.children}

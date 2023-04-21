@@ -27,11 +27,14 @@ const router = createBrowserRouter(
         <Route path="home" element={<Home />} />
         <Route path="questions" element={<QuestionLayout />} />
         <Route path="score" element={<ScoreCard />} />
-        <Route path="highscore" element={<HighScores />} loader={highScoreLoader} />
+        <Route
+          path="highscore"
+          element={<HighScores />}
+          loader={highScoreLoader}
+        />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Route>
-
   )
 );
 

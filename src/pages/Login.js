@@ -3,12 +3,11 @@ import Button from "../components/Button";
 import { useContext, useState } from "react";
 import AppContext from "../state/context";
 
-
 const Login = () => {
-
   const navigate = useNavigate();
-  const { email, password, setEmail, setPassword, setCount } = useContext(AppContext);
-  const [displayError, setDisplayError] = useState(false)
+  const { email, password, setEmail, setPassword, setCount, displayError, setDisplayError } =
+    useContext(AppContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = { email, password };
@@ -20,17 +19,23 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(result),
-    }).then((res) => {
-      return res.json();
-    }).then((data) => {
-      console.log(data.message);
-      if (data.message === "signed in.") {
-        navigate("/home");
-      } else {
-        setDisplayError(true)
-      }
-    });
-
+    })
+      .then((res) => {
+        return res.json();
+        // console.log(res.json())
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.status === "success") {
+          navigate("/home");
+        } else if (data.status === "error") {
+          setDisplayError(data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setDisplayError("Wrong login details");
+      });
   };
 
   setCount(60);
@@ -47,7 +52,10 @@ const Login = () => {
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              type="email" id="email" required />
+              type="email"
+              id="email"
+              required
+            />
           </div>
         </div>
         <div className="details">
@@ -58,10 +66,13 @@ const Login = () => {
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              type="password" id="password" required />
+              type="password"
+              id="password"
+              required
+            />
           </div>
         </div>
-        {displayError && <p>User doesn't exists</p>}
+        {displayError}
         <div className="btn">
           <Button onClick={handleSubmit} text="Submit" />
         </div>

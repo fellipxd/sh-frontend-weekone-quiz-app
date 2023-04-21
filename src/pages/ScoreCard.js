@@ -2,16 +2,20 @@ import React, { useContext, useEffect } from "react";
 // import {useHistory} from "react-router-dom"
 import Button from "../components/Button";
 import AppContext from "../state/context";
+import { useNavigate } from "react-router";
 
 const ScoreCard = () => {
-  const { score, initial, setInitial, submit, setSubmit, setCount } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const { score, initials, setInitials, submit, setSubmit, setCount } =
+    useContext(AppContext);
   // const history = useHistory()
   useEffect(() => {
     setCount(0);
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = { initial, score };
+    const result = { initials, score };
     console.log(result);
 
     fetch("https://quizapp.topdatanig.com/send_score.php", {
@@ -20,14 +24,27 @@ const ScoreCard = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(result),
-    }).then((res) => {
-      console.log("new blog added");
-      setSubmit("Submitted")
-
-    });
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setSubmit("Submitted");
+      });
   };
 
-
+  const handleSignout = () => {
+    fetch("https://quizapp.topdatanig.com/signout.php")
+      .then((res) => {
+        return res;
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.ok === true) {
+          navigate("/");
+        }
+      });
+  };
 
   return (
     <div>
@@ -38,8 +55,8 @@ const ScoreCard = () => {
         <div>
           <input
             type="text"
-            value={initial}
-            onChange={(e) => setInitial(e.target.value.toUpperCase())}
+            value={initials}
+            onChange={(e) => setInitials(e.target.value)}
             required
           />
         </div>
@@ -47,7 +64,11 @@ const ScoreCard = () => {
           <Button text="Submit" onClick={handleSubmit} />
         </div>
       </div>
-      <p>{submit}</p>
+      {submit && (
+        <a className="signout" onClick={handleSignout}>
+          Sign Out
+        </a>
+      )}
     </div>
   );
 };

@@ -1,11 +1,18 @@
 import Button from "../components/Button";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AppContext from "../state/context";
 import { useNavigate } from "react-router";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { email, password, setEmail, setPassword, submit, setSubmit, setCount } = useContext(AppContext);
+  const {
+    email,
+    password,
+    setEmail,
+    setPassword,
+    setCount, displayError, setDisplayError
+  } = useContext(AppContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = { email, password };
@@ -17,12 +24,17 @@ const SignUp = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(result),
-    }).then((res) => {
-      if (res.status === 200) {
-        navigate("/login");
-      }
     })
-
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data.status === "success") {
+          navigate("/login");
+        } else {
+          setDisplayError(data.message);
+        }
+      });
   };
   setCount(60);
   return (
@@ -38,7 +50,10 @@ const SignUp = () => {
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              type="email" id="email" required />
+              type="email"
+              id="email"
+              required
+            />
           </div>
         </div>
         <div className="details">
@@ -49,9 +64,13 @@ const SignUp = () => {
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              type="password" id="password" required />
+              type="password"
+              id="password"
+              required
+            />
           </div>
         </div>
+        {displayError}
         <div className="btn">
           <Button onClick={handleSubmit} text="Submit" link="/login" />
         </div>
