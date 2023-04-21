@@ -3,7 +3,9 @@ import AppContext from "./context";
 
 const AppProvider = (props) => {
   const [count, setCount] = useState(60);
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(0);
+  const [initial, setInitial] = useState("");
+  const [submit, setSubmit] = useState("");
   const [isCounting, setIsCounting] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [questions, setQuestions] = useState([]);
@@ -13,13 +15,12 @@ const AppProvider = (props) => {
     setCount(count - 1);
   };
   const increaseScore = () => {
-    setScore(score + 10)
-  }
+    setScore(score + 10);
+  };
 
   const updateCount = (count) => {
-    setCount(count - 5)
-  }
-
+    setCount(count - 5);
+  };
 
   const handleClick = () => {
     setIsCounting(true);
@@ -30,13 +31,35 @@ const AppProvider = (props) => {
   }
 
   if (count === 0) {
-    window.location.href = '/score';
+    window.location.href = "/score";
   }
 
-
-
   return (
-    <AppContext.Provider value={{ score, setScore, increaseScore, count, updateCount, decrementCount, isCounting, setIsCounting, handleClick, selectedOption, setSelectedOption, questions, setQuestions, answerResult, setAnswerResult, currentQuestionIndex, setCurrentQuestionIndex }}>
+    <AppContext.Provider
+      value={{
+        score,
+        setScore,
+        increaseScore,
+        count,
+        updateCount,
+        decrementCount,
+        isCounting,
+        setIsCounting,
+        handleClick,
+        selectedOption,
+        setSelectedOption,
+        questions,
+        setQuestions,
+        answerResult,
+        setAnswerResult,
+        currentQuestionIndex,
+        setCurrentQuestionIndex,
+        initial,
+        setInitial,
+        submit,
+        setSubmit,
+      }}
+    >
       {props.children}
     </AppContext.Provider>
   );

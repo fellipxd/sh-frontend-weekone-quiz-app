@@ -1,8 +1,5 @@
-
-export const questionDataLoader = async ({ params }) => {
-  const { id } = params;
-
-  const res = await fetch("http://localhost:4000/questions/" + id);
+export const highScoreLoader = async () => {
+  const res = await fetch("https://quizapp.topdatanig.com/send_score.php");
 
   return res.json();
 };

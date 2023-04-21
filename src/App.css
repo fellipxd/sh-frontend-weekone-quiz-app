@@ -80,6 +80,11 @@ ul {
   padding: 0 0.5rem;
 }
 
+ol {
+  margin-top: 0.5rem;
+  padding: 0.7rem;
+}
+
 li {
   margin-top: 0.5rem;
   padding: 0.7rem;
@@ -127,6 +132,7 @@ input {
 
 .initials {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
 }
@@ -151,6 +157,12 @@ input {
   margin-top: 0.5rem;
   padding-top: 1rem;
   border-top: 1px solid #333;
+}
+
+.btn {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 @media screen and (max-width: 450px) {

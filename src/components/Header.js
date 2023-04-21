@@ -6,12 +6,9 @@ import AppContext from "../state/context";
 const Header = () => {
   const { count } = useContext(AppContext);
 
-
-
-  console.log("count", count)
   return (
     <nav>
-      <Link to="/">View Highscores {<FaHandPointLeft />}</Link>
+      <Link to="highscore">View Highscores {<FaHandPointLeft />}</Link>
       <p>Time: {count} </p>
     </nav>
   );

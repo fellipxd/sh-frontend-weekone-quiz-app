@@ -1,7 +1,10 @@
-import React from "react";
 import Button from "../components/Button";
+import { useContext } from "react";
+import AppContext from "../state/context";
 
 const Login = () => {
+  const { handleClick, count } = useContext(AppContext);
+
   return (
     <div>
       <h2>Login Page</h2>
@@ -24,7 +27,7 @@ const Login = () => {
           </div>
         </div>
         <div className="btn">
-          <Button text="Submit" link="/questions/1" />
+          <Button onClick={handleClick} text="Submit" link="/questions/1" />
         </div>
       </div>
     </div>
