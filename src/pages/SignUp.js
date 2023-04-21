@@ -9,7 +9,7 @@ const SignUp = () => {
     const result = { email, password };
     console.log(result);
 
-    fetch("https://quipapp.000webhostapp.com/signup.php", {
+    fetch("https://quizapp.topdatanig.com/signup.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,8 +17,9 @@ const SignUp = () => {
       body: JSON.stringify(result),
     }).then((res) => {
       console.log("new blog added", res.json());
-      return res.json()
+      // return res.json()
     });
+
   };
   setCount(60);
   return (

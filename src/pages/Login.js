@@ -12,7 +12,7 @@ const Login = () => {
     const result = { email, password };
     console.log(result);
 
-    fetch("https://quipapp.000webhostapp.com/signin.php", {
+    fetch("https://quizapp.topdatanig.com/signin.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -14,7 +14,7 @@ const ScoreCard = () => {
     const result = { initial, score };
     console.log(result);
 
-    fetch("https://quipapp.000webhostapp.com/send_score.php", {
+    fetch("https://quizapp.topdatanig.com/send_score.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
