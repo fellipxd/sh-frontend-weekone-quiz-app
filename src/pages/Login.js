@@ -5,8 +5,10 @@ import AppContext from "../state/context";
 
 
 const Login = () => {
+
   const navigate = useNavigate();
   const { email, password, setEmail, setPassword, setCount } = useContext(AppContext);
+  const [displayError, setDisplayError] = useState(false)
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = { email, password };
@@ -24,6 +26,8 @@ const Login = () => {
       console.log(data.message);
       if (data.message === "signed in.") {
         navigate("/home");
+      } else {
+        setDisplayError(true)
       }
     });
 
@@ -57,6 +61,7 @@ const Login = () => {
               type="password" id="password" required />
           </div>
         </div>
+        {displayError && <p>User doesn't exists</p>}
         <div className="btn">
           <Button onClick={handleSubmit} text="Submit" />
         </div>

@@ -1,8 +1,10 @@
 import Button from "../components/Button";
 import { useContext } from "react";
 import AppContext from "../state/context";
+import { useNavigate } from "react-router";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const { email, password, setEmail, setPassword, submit, setSubmit, setCount } = useContext(AppContext);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,9 +18,10 @@ const SignUp = () => {
       },
       body: JSON.stringify(result),
     }).then((res) => {
-      console.log("new blog added", res.json());
-      // return res.json()
-    });
+      if (res.status === 200) {
+        navigate("/login");
+      }
+    })
 
   };
   setCount(60);

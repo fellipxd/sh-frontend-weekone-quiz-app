@@ -6,6 +6,7 @@ const Question = () => {
   const {
     increaseScore,
     count,
+    setCount,
     updateCount,
     selectedOption,
     setSelectedOption,
@@ -51,6 +52,9 @@ const Question = () => {
 
   if (isLoading) {
     return <p>Loading...</p>;
+  }
+  if (currentQuestionIndex === questions.length) {
+    setCount(0)
   }
 
   return (
