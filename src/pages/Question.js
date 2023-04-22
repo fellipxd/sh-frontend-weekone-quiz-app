@@ -8,7 +8,6 @@ const Question = () => {
     increaseScore,
     count,
     setCount,
-    updateCount,
     selectedOption,
     setSelectedOption,
     questions,

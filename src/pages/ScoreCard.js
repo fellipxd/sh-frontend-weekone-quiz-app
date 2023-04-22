@@ -62,9 +62,9 @@ const ScoreCard = () => {
         </div>
       </div>
       {submit && (
-        <a className="signout" onClick={handleSignout}>
+        <Button className="signout" onClick={handleSignout}>
           Sign Out
-        </a>
+        </Button>
       )}
     </div>
   );
