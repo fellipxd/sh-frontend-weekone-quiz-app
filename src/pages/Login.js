@@ -5,8 +5,15 @@ import AppContext from "../state/context";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { email, password, setEmail, setPassword, setCount, displayError, setDisplayError } =
-    useContext(AppContext);
+  const {
+    email,
+    password,
+    setEmail,
+    setPassword,
+    setCount,
+    displayError,
+    setDisplayError,
+  } = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,11 +37,17 @@ const Login = () => {
           navigate("/home");
         } else if (data.status === "error") {
           setDisplayError(data.message);
+          setTimeout(() => {
+            setDisplayError("");
+          }, 3000);
         }
       })
       .catch((error) => {
         console.log(error);
         setDisplayError("Wrong login details");
+        setTimeout(() => {
+          setDisplayError("");
+        }, 3000);
       });
   };
 

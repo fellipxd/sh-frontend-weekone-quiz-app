@@ -33,6 +33,9 @@ const SignUp = () => {
           navigate("/login");
         } else {
           setDisplayError(data.message);
+          setTimeout(() => {
+            setDisplayError("")
+          }, 3000)
         }
       });
   };

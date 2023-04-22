@@ -18,7 +18,7 @@ const AppProvider = (props) => {
     setCount(count - 1);
   };
   const increaseScore = () => {
-    setScore(score + 10);
+    setScore(score + 1000);
   };
 
   const updateCount = () => {
