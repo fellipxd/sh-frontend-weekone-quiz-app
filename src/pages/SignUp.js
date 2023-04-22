@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import { useContext, useState } from "react";
 import AppContext from "../state/context";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -10,7 +11,9 @@ const SignUp = () => {
     password,
     setEmail,
     setPassword,
-    setCount, displayError, setDisplayError
+    setCount,
+    displayError,
+    setDisplayError,
   } = useContext(AppContext);
 
   const handleSubmit = (e) => {
@@ -34,51 +37,54 @@ const SignUp = () => {
         } else {
           setDisplayError(data.message);
           setTimeout(() => {
-            setDisplayError("")
-          }, 3000)
+            setDisplayError("");
+          }, 3000);
         }
       });
   };
   setCount(60);
   return (
-    <div>
-      <h2 className="header">Sign Up</h2>
-      <p className="header">Enter Details here</p>
-      <div className="login-details">
-        <div className="details">
-          <div>
-            <label htmlFor="email">Email:</label>
+    <main>
+      <div className="container">
+        <h2 className="header">Sign Up</h2>
+        <p className="header">Enter Details here</p>
+        <div className="login-details">
+          <div className="details">
+            <div>
+              <label htmlFor="email">Email:</label>
+            </div>
+            <div>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                id="email"
+                required
+              />
+            </div>
           </div>
-          <div>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              id="email"
-              required
-            />
+          <div className="details">
+            <div>
+              <label htmlFor="password">Password:</label>
+            </div>
+            <div>
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                id="password"
+                required
+              />
+            </div>
           </div>
-        </div>
-        <div className="details">
-          <div>
-            <label htmlFor="password">Password:</label>
+          {displayError}
+          <div className="btn-2">
+            <Button onClick={handleSubmit} text="Submit" link="/login" />
+            <Link to="/login">Already have an account? Go to Login</Link>
           </div>
-          <div>
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              id="password"
-              required
-            />
-          </div>
-        </div>
-        {displayError}
-        <div className="btn">
-          <Button onClick={handleSubmit} text="Submit" link="/login" />
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
