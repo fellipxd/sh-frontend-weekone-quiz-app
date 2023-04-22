@@ -20,19 +20,33 @@ const HighScores = () => {
     }
   }, [navigate, setCount]);
 
+  const clearHighscores = () => {
+    fetch('https://quizapp.topdatanig.com/clear.php', {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+
+      .catch((error) => console.error(error));
+  };
+
+  const handleSignout = () => {
+    sessionStorage.clear()
+    navigate("/");
+  };
+
   return (
     <div>
       <h2>Highscores</h2>
       <ul className="list">
-        {scores.map((score) => (
+        {scores?.map((score) => (
           <ol>
-            <p>{score.initials}: {score.score}</p>
+            <p>{score?.initials}: {score.score}</p>
           </ol>
         ))}
       </ul>
       <div className="btn">
-        <Button text="Go Back" link="/" />
-        <Button text="Clear Highscores" />
+        <Button text="Signout" onClick={handleSignout} />
+        <Button text="Clear Highscores" onClick={clearHighscores} />
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ import Home from "./pages/Home";
 import QuestionLayout from "./layouts/QuestionLayout";
 import RootLayout from "./layouts/RootLayout";
 import NotFound from "./pages/NotFound";
-import ScoreCard from "./pages/ScoreCard";
 import AppProvider from "./state/provider";
 import Login from "./pages/Login";
 import HighScores from "./pages/HighScores";
