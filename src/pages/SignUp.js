@@ -1,5 +1,5 @@
 import Button from "../components/Button";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AppContext from "../state/context";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -15,6 +15,10 @@ const SignUp = () => {
     displayError,
     setDisplayError,
   } = useContext(AppContext);
+
+  useEffect(() => {
+    setCount(60);
+  }, [setCount]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +46,6 @@ const SignUp = () => {
         }
       });
   };
-  setCount(60);
   return (
     <main>
       <div className="container">

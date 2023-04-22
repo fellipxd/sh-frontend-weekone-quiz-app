@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import AppContext from "../state/context";
 
 const Login = () => {
@@ -12,8 +12,14 @@ const Login = () => {
     setPassword,
     setCount,
     displayError,
-    setDisplayError,
+    setDisplayError
   } = useContext(AppContext);
+
+
+  useEffect(() => {
+    setCount(60);
+  }, [setCount]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,6 +40,7 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         if (data.status === "success") {
+          sessionStorage.setItem('loggedIn', data.user_id);
           navigate("/home");
         } else if (data.status === "error") {
           setDisplayError(data.message);
@@ -51,7 +58,6 @@ const Login = () => {
       });
   };
 
-  setCount(60);
   return (
     <main>
       <div className="container">

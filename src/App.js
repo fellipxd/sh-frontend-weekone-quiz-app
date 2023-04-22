@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout />}>
         <Route path="home" element={<Home />} />
         <Route path="questions" element={<QuestionLayout />} />
-        <Route path="score" element={<ScoreCard />} />
+        {/* <Route path="score" element={<ScoreCard />} /> */}
         <Route
           path="highscore"
           element={<HighScores />}

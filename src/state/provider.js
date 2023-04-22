@@ -14,11 +14,12 @@ const AppProvider = (props) => {
   const [questions, setQuestions] = useState([]);
   const [answerResult, setAnswerResult] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
   const decrementCount = () => {
     setCount(count - 1);
   };
   const increaseScore = () => {
-    setScore(score + 1000);
+    setScore(score + 10);
   };
 
   const updateCount = () => {
@@ -64,7 +65,10 @@ const AppProvider = (props) => {
         email,
         setEmail,
         password,
-        setPassword, displayError, setDisplayError
+        setPassword,
+        displayError,
+        setDisplayError,
+
       }}
     >
       {props.children}

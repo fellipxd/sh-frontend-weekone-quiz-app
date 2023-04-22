@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../state/context";
 import ScoreCard from "./ScoreCard";
+import { useNavigate } from "react-router";
 
 const Question = () => {
   const {
@@ -17,6 +18,16 @@ const Question = () => {
     currentQuestionIndex,
     setCurrentQuestionIndex,
   } = useContext(AppContext);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const loggedInFromSession = sessionStorage.getItem('loggedIn');
+    if (!loggedInFromSession) {
+      navigate('/login');
+
+    }
+    console.log(loggedInFromSession)
+  }, [navigate, setCount]);
 
   const [isLoading, setIsLoading] = useState(true);
 

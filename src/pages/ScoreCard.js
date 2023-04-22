@@ -9,13 +9,17 @@ const ScoreCard = () => {
 
   const { score, initials, setInitials, submit, setSubmit, setCount } =
     useContext(AppContext);
-  // const history = useHistory()
+
   useEffect(() => {
     setCount(0);
-  }, []);
+  }, [setCount]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = { initials, score };
+    const user = sessionStorage.getItem("loggedIn")
+    const user_id = parseInt(user)
+    console.log(user_id)
+    const result = { user_id, initials, score };
     console.log(result);
 
     fetch("https://quizapp.topdatanig.com/send_score.php", {
@@ -33,17 +37,10 @@ const ScoreCard = () => {
       });
   };
 
+
   const handleSignout = () => {
-    fetch("https://quizapp.topdatanig.com/signout.php")
-      .then((res) => {
-        return res;
-      })
-      .then((data) => {
-        console.log(data);
-        if (data.ok === true) {
-          navigate("/");
-        }
-      });
+    sessionStorage.clear()
+    navigate("/");
   };
 
   return (

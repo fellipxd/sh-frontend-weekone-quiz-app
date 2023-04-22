@@ -1,22 +1,25 @@
+import { useContext, useEffect } from "react";
 import Button from "../components/Button";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
+import AppContext from "../state/context";
 const HighScores = () => {
   const highScore = useLoaderData()
   console.log('highscore', highScore.all_score)
   const scores = highScore.all_score
+  const {
+    setCount
+  } = useContext(AppContext);
 
-  // const clearHighscores = () => {
-  //   fetch('https://quizapp.topdatanig.com/clear-highscores.php', {
-  //     method: 'DELETE',
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       // Refresh the page to display the updated high scores
-  //       window.location.reload();
-  //     })
-  //     .catch((error) => console.error(error));
-  // };
+  const navigate = useNavigate();
+
+  setCount(0);
+  useEffect(() => {
+    const loggedInFromSession = sessionStorage.getItem('loggedIn');
+    if (!loggedInFromSession) {
+      navigate('/login');
+    }
+  }, [navigate, setCount]);
+
   return (
     <div>
       <h2>Highscores</h2>
