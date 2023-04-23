@@ -12,14 +12,12 @@ const Login = () => {
     setPassword,
     setCount,
     displayError,
-    setDisplayError
+    setDisplayError,
   } = useContext(AppContext);
-
 
   useEffect(() => {
     setCount(60);
   }, [setCount]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,7 +38,7 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         if (data.status === "success") {
-          sessionStorage.setItem('loggedIn', data.user_id);
+          sessionStorage.setItem("loggedIn", data.user_id);
           navigate("/home");
         } else if (data.status === "error") {
           setDisplayError(data.message);
@@ -92,7 +90,7 @@ const Login = () => {
               />
             </div>
           </div>
-          {displayError}
+          <div className="error">{displayError}</div>
           <div className="btn-2">
             <Button onClick={handleSubmit} text="Submit" />
             <Link to="/">Don't have an account? Go back to Homepage</Link>

@@ -204,6 +204,15 @@ input {
   display: inline-block;
 }
 
+
+.success {
+  color: #4bb543;
+}
+
+.error {
+  color: #ed4337;
+}
+
 @media screen and (max-width: 450px) {
   .container {
     padding: 1.5rem;

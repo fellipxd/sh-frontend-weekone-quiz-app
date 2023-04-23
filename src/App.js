@@ -16,6 +16,7 @@ import HighScores from "./pages/HighScores";
 import SignUp from "./pages/SignUp";
 import Landing from "./pages/Landing";
 import { highScoreLoader } from "./hook/loader";
+import ScoreCard from "./pages/ScoreCard";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -25,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout />}>
         <Route path="home" element={<Home />} />
         <Route path="questions" element={<QuestionLayout />} />
-        {/* <Route path="score" element={<ScoreCard />} /> */}
+        <Route path="score" element={<ScoreCard />} />
         <Route
           path="highscore"
           element={<HighScores />}

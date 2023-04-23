@@ -80,7 +80,7 @@ const SignUp = () => {
               />
             </div>
           </div>
-          {displayError}
+          <div className="error">{displayError}</div>
           <div className="btn-2">
             <Button onClick={handleSubmit} text="Submit" link="/login" />
             <Link to="/login">Already have an account? Go to Login</Link>

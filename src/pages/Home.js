@@ -2,13 +2,10 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import AppContext from "../state/context";
-import Cookies from 'js-cookie';
 
 const Home = () => {
   const { handleClick, setCount } = useContext(AppContext);
   const navigate = useNavigate();
-  const myCookie = Cookies.get('id');
-  console.log("mine", myCookie)
   useEffect(() => {
     setCount(60);
     const loggedInFromSession = sessionStorage.getItem('loggedIn');

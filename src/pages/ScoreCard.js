@@ -10,15 +10,19 @@ const ScoreCard = () => {
   const { score, initials, setInitials, submit, setSubmit, setCount } =
     useContext(AppContext);
 
+  setCount(0);
   useEffect(() => {
-    setCount(0);
-  }, [setCount]);
+    const loggedInFromSession = sessionStorage.getItem("loggedIn");
+    if (!loggedInFromSession) {
+      navigate("/login");
+    }
+  }, [navigate, setCount]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = sessionStorage.getItem("loggedIn")
-    const user_id = parseInt(user)
-    console.log(user_id)
+    const user = sessionStorage.getItem("loggedIn");
+    const user_id = parseInt(user);
+    console.log(user_id);
     const result = { user_id, initials, score };
     console.log(result);
 
@@ -33,13 +37,12 @@ const ScoreCard = () => {
         return res.json();
       })
       .then((data) => {
-        setSubmit("Submitted");
+        setSubmit("Score submitted");
       });
   };
 
-
   const handleSignout = () => {
-    sessionStorage.clear()
+    sessionStorage.clear();
     navigate("/");
   };
 
@@ -47,24 +50,31 @@ const ScoreCard = () => {
     <div>
       <h2>All done!</h2>
       <p>Your final score is {score}</p>
-      <div className="initials">
-        <span>Enter initials:</span>
-        <div>
-          <input
-            type="text"
-            value={initials}
-            onChange={(e) => setInitials(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <Button text="Submit" onClick={handleSubmit} />
-        </div>
+      <div className="mt-1">
+        {submit === "" ? (
+          <div className="initials">
+            <span>Enter initials:</span>
+            <div>
+              <input
+                type="text"
+                value={initials}
+                onChange={(e) => setInitials(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <Button text="Submit" onClick={handleSubmit} />
+            </div>
+          </div>
+        ) : (
+          <div className="initials">
+            <span className="success">{submit}</span>
+            <div>
+              <Button link="/login" onClick={handleSignout} text="Signout" />
+            </div>
+          </div>
+        )}
       </div>
-      {submit && (
-        <Button className="signout" onClick={handleSignout} text="Signout" />
-
-      )}
     </div>
   );
 };
